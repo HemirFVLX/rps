@@ -19,14 +19,13 @@ let humanScore = 0;
 
 function playRound(humanChoice, computerChoice){
     const humanChoiceStr = humanChoice.toLowerCase();
-    const computerChoiceStr = computerChoice.toLowerCase();
-    if(humanChoiceStr === 'rock' && computerChoiceStr === 'paper' || humanChoiceStr === 'paper' && computerChoiceStr === 'scissors' || humanChoiceStr === 'scissors' && computerChoiceStr === 'rock'){
-        console.log(`DEFEAT: ${computerChoiceStr} beats ${humanChoiceStr}!`);
+    if(humanChoiceStr === 'rock' && computerChoice === 'paper' || humanChoiceStr === 'paper' && computerChoice === 'scissors' || humanChoiceStr === 'scissors' && computerChoice === 'rock'){
+        console.log(`DEFEAT: The computer's ${computerChoice} beats your ${humanChoiceStr}!`);
         computerScore++;
-    } else if(humanChoiceStr === computerChoiceStr) {
-        console.log('DRAW: it\'s a tie!');
+    } else if(humanChoiceStr === computerChoice) {
+        console.log(`DRAW: it's a tie! (${humanChoiceStr})`);
     } else {
-        console.log(`VICTORY: ${humanChoiceStr} beats ${computerChoiceStr}!`);
+        console.log(`VICTORY: Your ${humanChoiceStr} beats the computer's ${computerChoice}!`);
         humanScore++;
     }
 }
@@ -38,11 +37,11 @@ function playGame(){
         playRound(humanChoice, computerChoice);
     }
     if(computerScore > humanScore){
-        console.log("Computer wins!");
+        console.log(`Computer wins! You ${humanScore}-${computerScore} Computer`);
     } else if(humanScore > computerScore){
-        console.log("You win!");
+        console.log(`You win! You ${humanScore}-${computerScore} Computer`);
     } else {
-        console.log("No winner!");
+        console.log(`No winner! You ${humanScore}-${computerScore} Computer`);
     }
 }
 
